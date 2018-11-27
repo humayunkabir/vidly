@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { getMovies } from '../../services/fakeMovieService';
 import { getGenres } from '../../services/fakeGenreService';
 import Pagination from '../common/pagination';
@@ -91,7 +92,9 @@ class Movies extends Component {
             <tbody>
               {movies.map(movie => (
                 <tr key={movie._id}>
-                  <th>{movie.title}</th>
+                  <th>
+                    <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
+                  </th>
                   <td>{movie.genre.name}</td>
                   <td>{movie.numberInStock}</td>
                   <td>{movie.dailyRentalRate}</td>
